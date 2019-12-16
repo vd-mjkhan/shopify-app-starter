@@ -22,6 +22,8 @@
   "homepage": "https://github.com/vd-mjkhan/dontbehot#readme",
   "dependencies": {
     "@shopify/koa-shopify-auth": "^3.1.51",
+    "@shopify/polaris": "^4.9.1",
+    "@zeit/next-css": "^1.0.1",
     "dotenv": "^6.2.0",
     "isomorphic-fetch": "^2.2.1",
     "koa": "^2.11.0",
