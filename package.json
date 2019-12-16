@@ -28,7 +28,10 @@
     "koa-session": "^5.12.3",
     "next": "^8.1.0",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.19.4"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
