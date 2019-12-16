@@ -21,14 +21,14 @@
   },
   "homepage": "https://github.com/vd-mjkhan/dontbehot#readme",
   "dependencies": {
-    "@shopify/koa-shopify-auth": "^3.1.41",
+    "@shopify/koa-shopify-auth": "^3.1.51",
     "dotenv": "^6.2.0",
     "isomorphic-fetch": "^2.2.1",
-    "koa": "^2.8.1",
+    "koa": "^2.11.0",
     "koa-session": "^5.12.3",
     "next": "^8.1.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
