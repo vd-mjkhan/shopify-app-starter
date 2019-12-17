@@ -12,43 +12,45 @@ export default function OrderRegister() {
     ];
 
     return (
-        <Layout>
-            <Layout.Section>
-                <Card title="Order Register">
-                    <Button textAlign="right" size="medium" outline>Edit Settings</Button>
-                </Card>
-            </Layout.Section>
-            <Layout.Section>
-                <Card>
-                    <DataTable
-                        columnContentTypes={[
-                            "text",
-                            "numeric",
-                            "text",
-                            "text",
-                            "text",
-                            "text",
-                            "text",
-                            "text",
-                            "numeric",
-                            "numeric"
-                        ]}
-                        headings={[
-                            "Email",
-                            "Order Number",
-                            "Status",
-                            "Delivery Type",
-                            "Deliv. Date",
-                            "Deliv. Time",
-                            "Date Order Placed",
-                            "Amount",
-                            "Tracking Number"
-                        ]}
-                        rows={dataRows}
-                        footerContent={`Showing ${dataRows.length} of ${dataRows.length} results`}
-                    />
-                </Card>
-            </Layout.Section>
-        </Layout>
+        <React.Fragment>
+            <Layout>
+                <Layout.Section>
+                    <Card title="Order Register">
+                        <Button textAlign="right" size="medium" outline>Edit Settings</Button>
+                    </Card>
+                </Layout.Section>
+                <Layout.Section>
+                    <Card>
+                        <DataTable
+                            columnContentTypes={[
+                                "text",
+                                "numeric",
+                                "text",
+                                "text",
+                                "text",
+                                "text",
+                                "text",
+                                "text",
+                                "numeric",
+                                "numeric"
+                            ]}
+                            headings={[
+                                "Email",
+                                "Order Number",
+                                "Status",
+                                "Delivery Type",
+                                "Deliv. Date",
+                                "Deliv. Time",
+                                "Date Order Placed",
+                                "Amount",
+                                "Tracking Number"
+                            ]}
+                            rows={dataRows}
+                            footerContent={`Showing ${dataRows.length} of ${dataRows.length} results`}
+                        />
+                    </Card>
+                </Layout.Section>
+            </Layout>
+        </React.Fragment>
     );
 }
