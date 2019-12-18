@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, DataTable, Layout, Button } from "@shopify/polaris";
 import Styles from './../global.css'
+import axios from 'axios'
+
+const API_URL = 'https://79554461c0dd73f732a344fdf64e615a:8a613835d149e367502ef96b2269b7b5@dontbehotdev.myshopify.com/admin/api/2019-04/orders.json';
 
 export default function OrderRegister() {
+    // useEffect(() => {
+    // })
+    React.useEffect(() => {
+        console.log("useEffect initialized!")
+        const url = API_URL
+        axios.get(url, {
+            headers: { 'Access-Control-Allow-Origin': '*' }
+        })
+            .then(response => console.log(response))
+            .catch(err => console.log(err))
+
+    }, []);
     const dataRows = [
         ["test@example.com", "1001", 'open', 'Delivery', "12.11.2019", "09:05AM", "10.11.2019", '$2600', 42500121001],
         ["luna@example.com", "1002", 'open', 'D&I', "14.12.2019", "11:15AM", "08.12.2019", '$2450', 42500121002],
