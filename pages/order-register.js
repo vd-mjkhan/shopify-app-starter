@@ -57,7 +57,7 @@ export default function OrderRegister() {
                             footerContent={`Showing ${orders.length} of ${orders.length} results`}
                         /> */}
                         {orders && (
-                            <table>
+                            <table className="table">
                                 <thead>
                                     <tr>
                                         <th>Email</th>

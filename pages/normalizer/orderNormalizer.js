@@ -3,7 +3,7 @@ const normalizeOrders = (orders) => {
         return {
             email: order.email,
             orderNumber: order.order_number,
-            status: order.fulfillment_status,
+            status: order.fulfillment_status || 'Open',
             dateOrderPlaced: order.processed_at,
             amount: order.total_price,
             trackingNumber: order.fulfillment_status || 'Not fulfilled'
