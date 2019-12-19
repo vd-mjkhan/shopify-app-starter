@@ -31,6 +31,7 @@
     "isomorphic-fetch": "^2.2.1",
     "koa": "^2.11.0",
     "koa-bodyparser": "^2.5.0",
+    "koa-logger": "^3.2.1",
     "koa-router": "^7.4.0",
     "koa-session": "^5.12.3",
     "next": "^8.1.0",
