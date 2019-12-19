@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, DataTable, Layout, Button } from "@shopify/polaris";
 import Styles from './../global.css'
+import axios from 'axios'
+import normalizeOrders from './normalizer/orderNormalizer'
+
+const API_URL = 'https://aca7f61f.ngrok.io/orders';
 
 export default function OrderRegister() {
-    const dataRows = [
-        ["test@example.com", "1001", 'open', 'Delivery', "12.11.2019", "09:05AM", "10.11.2019", '$2600', 42500121001],
-        ["luna@example.com", "1002", 'open', 'D&I', "14.12.2019", "11:15AM", "08.12.2019", '$2450', 42500121002],
-        ["john@example.com", "1003", 'open', 'Delivery', "16.12.2019", "03:00PM", "09.12.2019", '$250', 42500121003],
-        ["jack@example.com", "1004", 'open', 'D&I', "18.12.2019", "08:30PM", "10.11.2019", '$1800', 42500121004],
-        ["franci@example.com", "1005", 'open', 'Shipping', "23.12.2019", "09:45AM", "22.12.2019", '$759', 42500121005],
-    ];
+    // useEffect(() => {
+    // })
+    const [orders, setOrders] = useState([])
+    useEffect(() => {
+        console.log("useEffect initialized!")
+        const url = API_URL
+        axios.get(url, {
+            headers: { 'Access-Control-Allow-Origin': '*' }
+        })
+            .then(response => {
+                const kk = normalizeOrders(response.data.orders);
+                console.log("orders", kk);
+                setOrders(kk)
+                // console.log("orders", normalizeOrders(response.data.orders));
+            })
+            .catch(err => console.log(err))
 
+    }, []);
+    console.log("order state here", orders)
     return (
         <React.Fragment>
             <Layout>
@@ -21,14 +36,10 @@ export default function OrderRegister() {
                 </Layout.Section>
                 <Layout.Section>
                     <Card>
-                        <DataTable
+                        {/* <DataTable
                             columnContentTypes={[
                                 "text",
                                 "numeric",
-                                "text",
-                                "text",
-                                "text",
-                                "text",
                                 "text",
                                 "text",
                                 "numeric",
@@ -38,16 +49,44 @@ export default function OrderRegister() {
                                 "Email",
                                 "Order Number",
                                 "Status",
-                                "Delivery Type",
-                                "Deliv. Date",
-                                "Deliv. Time",
                                 "Date Order Placed",
                                 "Amount",
                                 "Tracking Number"
                             ]}
-                            rows={dataRows}
-                            footerContent={`Showing ${dataRows.length} of ${dataRows.length} results`}
-                        />
+                            rows={orders}
+                            footerContent={`Showing ${orders.length} of ${orders.length} results`}
+                        /> */}
+                        {orders && (
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Order Number</th>
+                                        <th>Status</th>
+                                        <th>Date Order Placed</th>
+                                        <th>Amount</th>
+                                        <th>Tracking Number</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {orders.map((order => {
+                                        return (
+                                            <tr>
+                                                <td>{order.email}</td>
+                                                <td>{order.orderNumber}</td>
+                                                <td>{order.status}</td>
+                                                <td>{order.dateOrderPlaced}</td>
+                                                <td>{order.amount}</td>
+                                                <td>{order.trackingNumber}</td>
+                                            </tr>
+
+
+                                        )
+                                    }))}
+                                </tbody>
+                            </table>
+                        )}
                     </Card>
                 </Layout.Section>
             </Layout>
